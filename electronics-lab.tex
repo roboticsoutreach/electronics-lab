@@ -1,39 +1,86 @@
 \documentclass{article}
 
+\usepackage{hyperref}
+\usepackage{siunitx}
+
 \title{Electronics Lab}
 
 \begin{document}
 
 \maketitle
 
+% TODO: introduction
+
 \section{Setup}
 
 On your desk you should find:
 
 \begin{itemize}
-\item a breadboard (a white plastic board with many rectangular holes)
+\item a breadboard (a white plastic board with a grid of holes)
 \item pliers
+\item wire strippers
 % etc.
 \end{itemize}
 
-Inside the breadboard, the topmost row of holes are all connected to each other.
-Usually, this is used to provide easy access to the power supply for components
-in the main working area of the breadboard. Plug the positive (red) lead of the
-battery holder into any hole on this top row.
+If some of these items aren't present or if you're having trouble identifying
+them, please ask for assistance from one of the organisers.
 
-Likewise, the bottom row of holes are also connected to each other, and are used
-for the negative power supply (ground). Connect the negative (black) lead of the
-battery holder into the bottom row.
+\subsection{Hookup wire}
 
-The rest of the breadboard is the main working area, where you can build and
-test circuits. Each group of 5 holes arranged in a column are connected
-together.
+We will use single-strand hookup wire to connect up our circuit. Some
+electronics kits provide pre-cut wires with connectors attached to each end;
+however being able to cut and strip wire off the reel is a good skill to learn.
 
-Put batteries in battery holder.
+Using the wire cutters, cut roughly \SI{30}{\centi\metre} of black and red wire
+from the reels. Conventially, red wire is used for anything directly connected
+to the positive power supply and black wire is used for anything directly
+connected to the negative power supply (ground).
 
-Cut and strip hookup wire.
+Also cut about \SI{60}{\centi\metre} of any other colour. This wire will be used
+for any other connections in the circuit. Feel free to use different colours to
+represent different sections of the circuit (e.g. blue for input circuitry and
+green for output circuitry), or anything else that may help you keep track of
+the layout of your circuit better.
+
+Practise cutting a few short lengths of wire and stripping the insulation off
+the ends. You should leave between \SI{5}{\milli\metre} and
+\SI{10}{\milli\metre} of bare copper at the end; too little and the wire won't
+stay securely in the breadboard hole, too much and you risk exposed copper
+making contact nearby component leads or other wires and causing a short
+circuit. If you are unfamiliar with the process of stripping wires, ask an
+organiser to demonstrate the procedure.
+
+\subsection{Breadboard}
+
+In this lab, we will build our circuits on a breadboard, which is a useful
+platform for mounting and connecting components that doesn't require soldering.
+Some of you may have used a breadboard before; if not, there is an excellent
+guide to getting started with breadboards available on SparkFun's website at
+\url{https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard}.
+
+The breadboards should have two power supply rows at the top, one labelled with
+a red line (usually used for the positive power supply) and one with a blue or
+black line (for the negative power supply). There should also be another two
+rows like these at the bottom of the board. Using a piece of (preferably red)
+hookup wire, connect the two red rows together. Do the same for the two
+black/blue rows.
+
+\subsection{Battery clip}
+
+For this lab we'll use a standard PP3 (9 volt) battery as our power supply.
+Grab the battery clip and strip the ends of the leads if necessary. Plug the
+red (positive) lead into one of the positive power supply rows of the
+breadboard, and the black (negative) lead into one of the negative power supply
+rows.
+
+Don't connect the clip to the battery just yet; we'll do that when we're ready
+to test our circuit. It's good practice to keep the power to your circuit
+disconnected except when necessary.
 
 \section{Wiring up an LED}
+
+% is this too easy? presumably if they've signed up for a paid electronics
+% course, they already have a significant interest in electronics.
 
 Right way round.
 
@@ -59,7 +106,7 @@ Current limit.
 %   Are participants working in pairs or on their own?
 %   Should hookup wires be provided, or should participants cut and strip their
 %    own wire?
-%   
+%   Do we need to buy pliers, wire strippers etc. or will ECS loan us these?
 
 % TODO:
 %   "If you need assistance, talk to blueshirts" etc.
