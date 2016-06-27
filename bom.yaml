@@ -1,0 +1,41 @@
+# Bill of materials.
+
+# Let N be the number of lab groups (either individual students or pairs).
+
+- summary: Pliers
+  quantity: N + 2
+
+- summary: Wire cutters
+  quantity: N + 2
+
+- summary: Wire strippers
+  quantity: N + 2
+  
+- summary: Breadboard
+  quantity: N + 2
+
+- summary: PP3 battery
+  quantity: N * 1.5
+
+- summary: PP3 battery clip
+  quantity: N + 5
+
+- summary: Hookup wire (black)
+  notes: 22 AWG single strand
+  quantity: N * 0.5 metres
+
+- summary: Hookup wire (red)
+  notes: 22 AWG single strand
+  quantity: N * 0.5 metres
+
+- summary: Hookup wire (green)
+  notes: 22 AWG single strand
+  quantity: N * 0.5 metres
+
+- summary: Hookup wire (yellow)
+  notes: 22 AWG single strand
+  quantity: N * 0.5 metres
+
+- summary: Hookup wire (white)
+  notes: 22 AWG single strand
+  quantity: N * 0.5 metres
