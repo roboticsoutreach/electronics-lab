@@ -1,4 +1,6 @@
 *.aux
 *.log
+*.tdo
 *.out
 *.pdf
+*-converted-to.pdf

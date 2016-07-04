@@ -1,41 +1,67 @@
 # Bill of materials.
 
-# Let N be the number of lab groups (either individual students or pairs).
-
 - summary: Pliers
-  quantity: N + 2
+  quantity: 32
 
 - summary: Wire cutters
-  quantity: N + 2
+  quantity: 32
 
 - summary: Wire strippers
-  quantity: N + 2
-  
+  quantity: 32
+
 - summary: Breadboard
-  quantity: N + 2
+  farnell: 2395961
+  quantity: 32
 
 - summary: PP3 battery
-  quantity: N * 1.5
+  farnell: 2507367
+  quantity: 40
 
 - summary: PP3 battery clip
-  quantity: N + 5
+  farnell: 1650667
+  quantity: 40
 
 - summary: Hookup wire (black)
-  notes: 22 AWG single strand
-  quantity: N * 0.5 metres
+  notes: 22 AWG; single strand; 25ft reel
+  farnell: 1662027
+  quantity: 2
 
 - summary: Hookup wire (red)
-  notes: 22 AWG single strand
-  quantity: N * 0.5 metres
+  notes: 22 AWG; single strand; 25ft reel
+  farnell: 1662031
+  quantity: 2
 
 - summary: Hookup wire (green)
-  notes: 22 AWG single strand
-  quantity: N * 0.5 metres
+  notes: 22 AWG; single strand; 25ft reel
+  farnell: 1662033
+  quantity: 2
 
 - summary: Hookup wire (yellow)
-  notes: 22 AWG single strand
-  quantity: N * 0.5 metres
+  notes: 22 AWG; single strand; 25ft reel
+  farnell: 1662032
+  quantity: 2
 
 - summary: Hookup wire (white)
-  notes: 22 AWG single strand
-  quantity: N * 0.5 metres
+  notes: 22 AWG; single strand; 25ft reel
+  farnell: 1662036
+  quantity: 2
+
+- summary: LED (red)
+  notes: 2V; 20mA
+  farnell: 2335725
+  quantity: 40
+
+- summary: LED (green)
+  notes: 2.2V; 20mA
+  farnell: 2335726
+  quantity: 40
+
+- summary: 390 Ω resistor
+  notes: 400mW; ±1%
+  farnell: 1565309
+  quantity: 70
+
+- summary: Microswitch
+  notes: Wire-leaded; SPDT
+  farnell: 2068318
+  quantity: 40
