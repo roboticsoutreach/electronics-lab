@@ -13,14 +13,6 @@
   farnell: 2395961
   quantity: 32
 
-- summary: PP3 battery
-  farnell: 2507367
-  quantity: 40
-
-- summary: PP3 battery clip
-  farnell: 1650667
-  quantity: 40
-
 - summary: Hookup wire (black)
   notes: 22 AWG; single strand; 25ft reel
   farnell: 1662027
@@ -46,20 +38,23 @@
   farnell: 1662036
   quantity: 2
 
-- summary: LED (red)
-  notes: 2V; 20mA
-  farnell: 2335725
-  quantity: 40
+#- summary: LED (red)
+#  notes: 2V; 20mA
+#  farnell: 2335725
+#  quantity: 40
 
-- summary: LED (green)
-  notes: 2.2V; 20mA
-  farnell: 2335726
-  quantity: 40
+#- summary: LED (green)
+#  notes: 2.2V; 20mA
+#  farnell: 2335726
+#  quantity: 40
 
-- summary: 390 Ω resistor
-  notes: 400mW; ±1%
-  farnell: 1565309
-  quantity: 70
+#- summary: 390 Ω resistor
+#  notes: 400mW; ±1%
+#  farnell: 1565309
+#  quantity: 70
+
+- summary: 10 kΩ resistor
+  quantity: 40
 
 - summary: Microswitch
   notes: Wire-leaded; SPDT

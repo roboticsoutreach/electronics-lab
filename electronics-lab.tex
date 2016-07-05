@@ -1,9 +1,11 @@
 \documentclass{article}
 
+\usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{siunitx}
 \usepackage{todonotes}
+\usepackage{verbatim}
 
 \title{Electronics Lab}
 
@@ -26,8 +28,6 @@ On your desk you should find:
 \item pliers
 \item wire strippers
 \item wire cutters
-\item a PP3 (9 volt) battery
-\item a clip for the battery
 \item two LEDs (one red, one green)
 \item two resistors
 \item a microswitch
@@ -82,17 +82,84 @@ black/blue rows with a piece of black wire.
 The rest of the holes are the main working area. Each column of five adjacent
 holes is electrically connected together.
 
-\subsection{Battery clip}
+\subsection{Current, voltage and resistance}
 
-For this lab we'll use a standard PP3 (9 volt) battery as our power supply.
-Grab the battery clip and strip the ends of the leads if necessary. Plug the
-red (positive) lead into one of the positive power supply rows of the
-breadboard, and the black (negative) lead into one of the negative power supply
-rows.
+Before we get started on the practical tasks, we need to have some understanding
+of how electronic circuits work.
 
-Don't connect the clip to the battery just yet; we'll do that when we're ready
-to test our circuit. It's good practice to keep the power to your circuit
-disconnected except when necessary.
+The coulomb (\si{\coulomb}) is the unit of \emph{electric charge}. One coulomb
+is equal to the total charge of about \num{6.25e18} electrons. If one coulomb
+flows through a wire in one second, then we can say that one ampere of
+\emph{current} is flowing. The larger the current in a wire, the more electrons
+are moving through it each second.
+
+\emph{Voltage} is what causes a current to flow. When we talk about the voltage
+between two points in a circuit, we're referring to how the energy of the
+electrons changes as they travel between those points. Batteries are sources
+of electrical energy; a \SI{9}{\volt} battery will cause each coulomb of charge
+that comes out of one terminal to have \SI{9}{\joule} more energy than when it
+went in the other terminal. Most other components are destinations for
+electrical energy. For example, a light bulb with a voltage of \SI{12}{\volt}
+across it means that each coulomb of charge leaves with \SI{12}{\joule} less
+energy than it entered with.
+
+One of the fundamental laws of physics is that energy cannot be created or
+destroyed, only transferred. This means that batteries don't create energy;
+they simply convert chemical energy to electrical energy. Similarly, motors
+convert electrical energy to kinetic energy, and light bulbs convert electrical
+energy to light (and thermal energy, if they're not \SI{100}{\percent}
+efficient).
+
+Voltage and current are related in many ways; however, perhaps the most
+important relationship is Ohm's law. Ohm's law states that the voltage across
+a component called a \emph{resistor} is equal to the current flowing through it
+multiplied by a constant called the \emph{resistance} of the resistor. In
+mathematical notation,
+
+\begin{equation*}
+V = I R
+\end{equation*}
+
+where $V$ is the voltage, $I$ is the current and $R$ is the resistance. We will
+use this equation to help design and analyse our circuits.
+
+\section{Task 1: Detecting collisions}
+
+A simple way to detect collisions in your robot is to use a circuit involving a
+microswitch. 
+
+Let's take a look at the following circuit:
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.5\textwidth]{assets/fig/schem/switch}
+\label{fig:schem:switch}
+\end{figure}
+
+When the switch is in the lower position (so that pins 1 and 2 are connected),
+the circuit is broken and no current can flow through the resistor. Ohm's law
+tells us that the voltage across the resistor is equal to the current times the
+resistance; therefore the voltage must also be zero.
+
+If the switch is moved to the upper position (so that pins 1 and 3 are instead
+connected), the top end of the resistor is connected to the \SI{5}{\volt}
+supply. Since the other end is connected to ground (\SI{0}{\volt}), this means
+that the voltage across the resistor will be \SI{5}{\volt}.
+
+So currently the voltage across the resistor will be either \SI{0}{\volt} or
+\SI{5}{\volt}, depending on the state of the switch. If we could connect this
+to our robot's Raspberry Pi, then we'd be able to check the state of the switch
+and use it to control our robot's behaviour.
+
+Fortunately, Raspberry Pis (and digital electronics in general) are very good at
+determining if a voltage is zero or not! Simply connect the ground of our
+circuit to the ground of the Raspberry Pi, and connect the other end of the
+resistor (the one that's not connected to ground) to one of the Raspberry Pi's
+\emph{GPIO inputs}. \todo[inline]{Finish this}
+
+
+
+\begin{comment}
 
 \section{Lighting an LED}
 
@@ -198,6 +265,8 @@ labelled ``3'' is the ``normally closed'' terminal (red wire).
 \end{figure}
 
 Check that your circuit works before moving on.
+
+\end{comment}
 
 \end{document}
 
