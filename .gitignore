@@ -4,3 +4,5 @@
 *.out
 *.pdf
 *-converted-to.pdf
+*#
+*~
