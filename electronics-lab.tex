@@ -1,6 +1,8 @@
 \documentclass{article}
 
 \usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{calc}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{siunitx}
@@ -16,8 +18,10 @@
 
 \maketitle
 
-\todo{Introduction}
-\todo{Men}
+\todo[inline]{Introduction}
+\todo[inline]{Say: students don't have to finish all tasks, nor do they have to
+start at the first one}
+\todo[inline]{Ensure all figures have suitable captions}
 
 \section{Setup}
 
@@ -123,7 +127,7 @@ V = I R
 where $V$ is the voltage, $I$ is the current and $R$ is the resistance. We will
 use this equation to help design and analyse our circuits.
 
-\section{Task 1: Detecting collisions}
+\section{Detecting collisions}
 
 A simple way to detect collisions in your robot is to use a circuit involving a
 microswitch. 
@@ -134,6 +138,7 @@ Let's take a look at the following circuit:
 \centering
 \includegraphics[width=.5\textwidth]{assets/fig/schem/switch}
 \label{fig:schem:switch}
+\caption{Microswitch circuit.}
 \end{figure}
 
 When the switch is in the lower position (so that pins 1 and 2 are connected),
@@ -142,20 +147,106 @@ tells us that the voltage across the resistor is equal to the current times the
 resistance; therefore the voltage must also be zero.
 
 If the switch is moved to the upper position (so that pins 1 and 3 are instead
-connected), the top end of the resistor is connected to the \SI{5}{\volt}
+connected), the top end of the resistor is connected to the \SI{3.3}{\volt}
 supply. Since the other end is connected to ground (\SI{0}{\volt}), this means
-that the voltage across the resistor will be \SI{5}{\volt}.
+that the voltage across the resistor will be \SI{3.3}{\volt}.
 
 So currently the voltage across the resistor will be either \SI{0}{\volt} or
-\SI{5}{\volt}, depending on the state of the switch. If we could connect this
-to our robot's Raspberry Pi, then we'd be able to check the state of the switch
-and use it to control our robot's behaviour.
+\SI{3.3}{\volt}, depending on the state of the switch. However, to make this
+circuit useful, we want to connect it to our robot's kit. Fortunately, the
+JointIO board is designed for interfacing simple electronic circuits to the
+robot's central processor. It also provides a handy \SI{3.3}{\volt} power supply
+that we can use for our circuit.
 
-Fortunately, Raspberry Pis (and digital electronics in general) are very good at
-determining if a voltage is zero or not! Simply connect the ground of our
-circuit to the ground of the Raspberry Pi, and connect the other end of the
-resistor (the one that's not connected to ground) to one of the Raspberry Pi's
-\emph{GPIO inputs}. \todo[inline]{Finish this}
+Construct this circuit on a breadboard, and connect it to the breadboard as is
+shown in Figure~\ref{fig:schem:switch-jointio}. You'll need to know which
+microswitch wire is which: \todo{How do wires connect to JointIO? Camcons?}
+
+\begin{tabular*}{\textwidth}[c]{p{3cm}p{2cm}p{6cm}}
+\toprule
+Microswitch wire & Pin number on diagram & Description \\
+\midrule
+Black & 1 & Common \\
+Blue & 2 & Connected to common when switch is pressed, disconnected when not pressed \\
+Red & 3 & Disconnected when switch is pressed, connected to common when not pressed \\
+\bottomrule
+\end{tabular*}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.5\textwidth]{assets/fig/schem/switch-jointio}
+\label{fig:schem:switch-jointio}
+\caption{Microswitch circuit. The necessary connections to the JointIO board are
+shown.}
+\end{figure}
+
+\todo[inline]{Think of a corresponding output that can be controlled by this (servo?)}
+
+\todo[inline]{Describe the software side of this.}
+
+\todo[inline]{Say: Why do you think is 10K a good resistor value to use?}
+\todo[inline]{Say: How would you modify the setup to turn on the output when
+the switch is not pressed (instead of when it \emph{is} pressed)? Can you think
+of a solution that only modifies the circuit, and a solution that only modifies
+the software?}
+
+\section{Light gates}
+
+Another sensor that may be useful is the \emph{infrared light gate}. In its
+simplest form, it consists of two circuits. One powers an infrared LED,
+producing a beam of light. A separate circuit then uses a device called a
+\emph{phototransistor}, located some distance in front of the LED, to detect if
+the beam of light is interrupted before it reaches the phototransistor.
+
+\subsection{The LED circuit}
+
+There are a couple of things to consider when using LEDs in circuits. The first
+is their \emph{polarity}, which refers to which way round the two leads are
+connected. One of the leads is the \emph{anode} and the other is the
+\emph{cathode}. To identify which is which, you can look at either the length of
+the leads (the cathode is slightly shorter than the anode) or the lip around the
+base of the LED body (which is flat on the cathode's side and curved on the
+anode's side). The anode should always be connected to a higher voltage than the
+cathode in order for the LED to work.
+
+The other issue is the amount of current flowing through the LED. If it was
+connected directly to the power supply, a very large current will flow, which
+will almost certainly damage the LED and power supply. Therefore, we will add a
+resistor to the circuit to limit the current. The resistor we will use is a
+\SI{100}{\ohm} resistor.
+
+Figure~\ref{fig:schem:ir-led} shows the schematic of the LED circuit.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.5\textwidth]{assets/fig/schem/ir-led}
+\label{fig:schem:ir-led}
+\caption{Light gate LED circuit.}
+\end{figure}
+
+The LED has an almost-constant voltage of \SI{1.6}{\volt}, and is rated for a
+current of \SI{20}{\milli\ampere}. Work out the voltage across the resistor,
+and use Ohm's law to find the current that would flow through the resistor. Is
+it less than the LED's current limit?
+
+Construct the circuit on your breadboard, and connect the ground and
+\SI{3.3}{\volt} supplies to the corresponding connectors on the JointIO board.
+When the circuit is powered up, the LED should emit infrared light. While you
+won't be able to see it with the naked eye, a smartphone camera should be able
+to detect it.
+
+\subsection{The phototransistor circuit}
+
+
+
+\todo[inline]{Say: Experiment to see how far the LED and phototransistor can be
+separated before the system stops working reliably}
+
+\section{Ultrasonic proximity sensors}
+
+\todo[inline]{Depends if we can actually source these}
+
+\section{Controlling a servo}
 
 
 
@@ -163,22 +254,7 @@ resistor (the one that's not connected to ground) to one of the Raspberry Pi's
 
 \section{Lighting an LED}
 
-Let's set up a simple circuit to light up an LED. There are a couple of things
-to consider when using LEDs in circuits. The first is their \emph{polarity},
-which refers to which way round the two leads are connected. One of the leads
-is the \emph{anode} and the other is the \emph{cathode}. To identify which is
-which, you can look at either the length of the leads (the cathode is slightly
-shorter than the anode) or the lip around the base of the LED body (which is
-flat on the cathode's side and curved on the anode's side). The anode should
-always be connected to a higher voltage than the cathode in order for the LED
-to work.
-
-The other issue is the amount of current flowing through the LED. If it was
-connected directly to the power supply, a very large current will flow, which
-will almost certainly damage the LED and battery. Therefore, we will add a
-\emph{resistor} to the circuit to limit the current. We'll use a
-\SI{390}{\ohm} resistor, since that will allow enough current to flow to light
-the LED quite brightly.
+Let's set up a simple circuit to light up an LED. 
 
 Place the resistor and red LED in the breadboard so that:
 

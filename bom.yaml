@@ -53,10 +53,31 @@
 #  farnell: 1565309
 #  quantity: 70
 
+### Parts for microswitch task ###
+
 - summary: 10 kΩ resistor
+  notes: 400mW; ±1%
+  farnell: 1565271
   quantity: 40
 
 - summary: Microswitch
   notes: Wire-leaded; SPDT
   farnell: 2068318
+  quantity: 40
+
+### Parts for light gate task ###
+
+- summary: L-53F3C infrared LED
+  notes: 1.6V; 20mA; 940nm
+  farnell: 2290441
+  quantity: 40
+
+- summary: 100 Ω resistor
+  notes: 400mW; ±1%
+  farnell: 1565270
+  quantity: 40
+
+- summary: L-53P3C infrared phototransistor
+  notes: 940nm
+  farnell: 2290444
   quantity: 40
