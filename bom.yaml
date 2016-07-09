@@ -1,5 +1,7 @@
 # Bill of materials.
 
+### Tools (non-consumables): ###
+
 - summary: Pliers
   quantity: 32
 
@@ -12,6 +14,8 @@
 - summary: Breadboard
   farnell: 2395961
   quantity: 32
+
+### Reels of hookup wire: ###
 
 - summary: Hookup wire (black)
   notes: 22 AWG; single strand; 25ft reel
@@ -38,22 +42,7 @@
   farnell: 1662036
   quantity: 2
 
-#- summary: LED (red)
-#  notes: 2V; 20mA
-#  farnell: 2335725
-#  quantity: 40
-
-#- summary: LED (green)
-#  notes: 2.2V; 20mA
-#  farnell: 2335726
-#  quantity: 40
-
-#- summary: 390 Ω resistor
-#  notes: 400mW; ±1%
-#  farnell: 1565309
-#  quantity: 70
-
-### Parts for microswitch task ###
+### Parts for microswitch task: ###
 
 - summary: 10 kΩ resistor
   notes: 400mW; ±1%
@@ -65,7 +54,7 @@
   farnell: 2068318
   quantity: 40
 
-### Parts for light gate task ###
+### Parts for light gate task: ###
 
 - summary: L-53F3C infrared LED
   notes: 1.6V; 20mA; 940nm
@@ -80,4 +69,9 @@
 - summary: L-53P3C infrared phototransistor
   notes: 940nm
   farnell: 2290444
+  quantity: 40
+
+- summary: 1 kΩ resistor
+  notes: 400mW; ±1%
+  farnell: 1565287
   quantity: 40

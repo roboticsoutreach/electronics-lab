@@ -237,7 +237,50 @@ to detect it.
 
 \subsection{The phototransistor circuit}
 
+A phototransistor is a particular kind of \emph{transistor}. Normal transistors
+have three terminals: a collector, a base and an emitter. Transistors function
+like switches, in that you can control whether current can flow between the
+collector and emitter or not. However, while in a switch this is controlled by
+mechanical action, in a transistor it is determined by whether current is
+flowing into the base or not\footnote{It's actually a bit more subtle than this;
+the larger the base current, the larger the maximum collector-to-emitter
+current.} Essentially, it's an electrically-controlled switch.
 
+The key difference between phototransistors and transistors is that
+phototransistors don't have an external base pin; instead the switching action
+is controlled by whether light is shining on it or not.
+
+Let's examine the circuit we will use for this part of the lab:
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.5\textwidth]{assets/fig/schem/ir-pt}
+\end{figure}
+
+When no light is shone on the phototransistor, there is a very high resistance
+between the collector and emitter, and so almost no current can flow through
+the circuit. As a result of Ohm's law, the voltage across the resistor will be
+also be very small. The voltage across the resistor and the voltage across the
+phototransistor must always add up to \SI{3.3}{\volt}, so this makes the
+voltage across the phototransistor equal to about \SI{3.3}{\volt}.
+
+Now, if light is shone on the phototransistor, then the resistance between the
+collector and emitter is much lower, and a large current can flow. Like the LED,
+the phototransistor has a roughly constant voltage when it is well illuminated;
+for the phototransistor we will be using (a L-53P3C) this voltage is
+\SI{0.8}{\volt}. If we use a \SI{1}{\kilo\ohm} resistor, what current will flow
+through the circuit? Is this lower than the phototransistor's current rating of
+\SI{3}{\milli\ampere}?
+
+In this setup, we will use the JointIO board to measure the voltage across the
+phototransistor, since one end of it is connected to ground. We've seen already
+that this voltage will be about \SI{3.3}{\volt} if the beam of light is broken,
+and about \SI{0.8}{\volt} if it is not. While \SI{0.8}{\volt} is not exactly
+equal to zero, it is still less than the threshold voltage\footnote{On the
+JointIO board, this threshold voltage is \SI{1.65}{\volt}.} for determining
+if an input is ``on'' or ``off''.
+
+\todo[inline]{Describe the software side of this.}
 
 \todo[inline]{Say: Experiment to see how far the LED and phototransistor can be
 separated before the system stops working reliably}
@@ -247,102 +290,6 @@ separated before the system stops working reliably}
 \todo[inline]{Depends if we can actually source these}
 
 \section{Controlling a servo}
-
-
-
-\begin{comment}
-
-\section{Lighting an LED}
-
-Let's set up a simple circuit to light up an LED. 
-
-Place the resistor and red LED in the breadboard so that:
-
-\begin{itemize}
-\item one end of the resistor is connected to the positive power supply.
-\item the other end of the resistor is connected to the anode of the LED.
-\item the cathode of the LED is connected to the negative power supply.
-\end{itemize}
-
-Figure~\ref{fig:breadboard:led} shows how this could be done on the breadboard.
-The same circuit is shown in Figure~\ref{fig:schem:led} as a schematic diagram.
-Schematics are widely used for modelling circuits in a logical manner, without
-having to worry about the physical layout of the circuit. The symbols represent
-components (the battery, resistor and LED) and the lines between them represent
-electrical connections (wires and breadboard connections). Compare the schematic
-diagram to the breadboard layout to get a feel for how schematic diagrams work,
-since the more complex circuits will be described mainly using their diagrams.
-
-\begin{figure}
-\centering
-\missingfigure{LED circuit built on a breadboard}
-\caption{LED circuit built on a breadboard.}
-\label{fig:breadboard:led}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{assets/fig/schem/led}
-\caption{Schematic diagram of the LED circuit.}
-\label{fig:schem:led}
-\end{figure}
-
-Now, when you put the battery clip onto the battery, the LED should light up.
-If it does, well done! If it doesn't, have a think about where the problem
-could lie.
-
-\begin{itemize}
-\item Is the LED connected the right way round?
-\item Is the battery clip on the right way round? \todo{How do you know the clip is the right way round?}
-\item Are the resistor and LED connected to the same 5-hole group?
-\todo{More troubleshooting options would be nice.}
-\end{itemize}
-
-If you're still unable to locate the problem, ask a mentor for assistance.
-
-\section{Using a microswitch}
-
-Lighting up an LED is all well and good, but it's not particularly interactive.
-Let's add some input to our circuit. We'll use a microswitch (a type of
-pushbutton). We'll also add a second LED (a green one), and set up the circuit
-so that the green LED lights when the switch is pressed and the red one lights
-when it's not pressed.
-
-First, unplug the battery from its clip; it's a good idea to always disconnect
-the power from your circuit before you modify it, to reduce the risk of
-short-circuiting the battery or damaging the components.
-
-The microswitch has three wires coming out of it: ``common'' (black), ``normally
-open'' (blue) and ``normally closed'' (red). When the switch is not being
-pressed, ``common'' and ``normally closed'' are connected together inside the
-switch, and ``normally open'' is not connected to anything. Likewise when the
-switch is pressed, ``common'' and ``normally open'' are connected together and
-``normally closed'' is disconnected.
-
-We can use this in our circuit by connecting the LED-and-resistor combinations
-to the ``normally open'' and ``normally closed'' terminals of the switch,
-instead of directly to the battery. The battery is instead connected to the
-``common'' of the switch. When the switch is not pressed, one LED is connected
-to the battery via the switch (so it will light up) and the other LED circuit is
-disconnected (so it won't light up). Pressing the switch in reverses which LED
-is connected and which is disconnected.
-
-The schematic for our circuit is shown in Figure~\ref{fig:schem:switch}. The
-switch is the symbol to the above and right of the battery. The connection
-labelled with a ``1'' is the ``common'' terminal of the switch (black wire), the
-wire labelled ``2'' is the ``normally open'' terminal (blue wire) and the wire
-labelled ``3'' is the ``normally closed'' terminal (red wire).
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{assets/fig/schem/switch}
-\caption{Schematic diagram of the microswitch circuit.}
-\label{fig:schem:switch}
-\end{figure}
-
-Check that your circuit works before moving on.
-
-\end{comment}
 
 \end{document}
 
