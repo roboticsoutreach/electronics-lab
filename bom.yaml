@@ -1,5 +1,8 @@
 # Bill of materials.
 
+# Note that listed costs are dependant on the quantity of the item ordered.
+# They may also vary over time, so they should only be considered estimates.
+
 ### Tools (non-consumables): ###
 
 - summary: Pliers
@@ -14,6 +17,8 @@
 - summary: Breadboard
   farnell: 2395961
   quantity: 32
+  item-cost: 2.41
+  total-cost: 77.12
 
 ### Reels of hookup wire: ###
 
@@ -21,26 +26,36 @@
   notes: 22 AWG; single strand; 25ft reel
   farnell: 1662027
   quantity: 2
+  item-cost: 4.419
+  total-cost: 8.838
 
 - summary: Hookup wire (red)
   notes: 22 AWG; single strand; 25ft reel
   farnell: 1662031
   quantity: 2
+  item-cost: 4.419
+  total-cost: 8.838
 
 - summary: Hookup wire (green)
   notes: 22 AWG; single strand; 25ft reel
   farnell: 1662033
   quantity: 2
+  item-cost: 4.419
+  total-cost: 8.838
 
 - summary: Hookup wire (yellow)
   notes: 22 AWG; single strand; 25ft reel
   farnell: 1662032
   quantity: 2
+  item-cost: 4.419
+  total-cost: 8.838
 
 - summary: Hookup wire (white)
   notes: 22 AWG; single strand; 25ft reel
   farnell: 1662036
   quantity: 2
+  item-cost: 4.419
+  total-cost: 8.838
 
 ### Parts for microswitch task: ###
 
@@ -48,11 +63,15 @@
   notes: 400mW; ±1%
   farnell: 1565271
   quantity: 40
+  item-cost: 0.0269
+  total-cost: 1.076
 
 - summary: Microswitch
   notes: Wire-leaded; SPDT
   farnell: 2068318
   quantity: 40
+  item-cost: 3.71
+  total-cost: 148.4  # way too much! need to find a cheaper substitute!
 
 ### Parts for light gate task: ###
 
@@ -60,18 +79,26 @@
   notes: 1.6V; 20mA; 940nm
   farnell: 2290441
   quantity: 40
+  item-cost: 0.11
+  total-cost: 4.4
 
 - summary: 100 Ω resistor
   notes: 400mW; ±1%
   farnell: 1565270
   quantity: 40
+  item-cost: 0.0269
+  total-cost: 1.076
 
 - summary: L-53P3C infrared phototransistor
   notes: 940nm
   farnell: 2290444
   quantity: 40
+  item-cost: 0.1069
+  total-cost: 4.276
 
 - summary: 1 kΩ resistor
   notes: 400mW; ±1%
   farnell: 1565287
   quantity: 40
+  item-cost: 0.0269
+  total-cost: 1.076
