@@ -138,7 +138,8 @@ Let's take a look at the following circuit:
 \centering
 \includegraphics[width=.5\textwidth]{assets/fig/schem/switch}
 \label{fig:schem:switch}
-\caption{Microswitch circuit.}
+\caption{Microswitch circuit. The black rectangle at pin 3 of the switch simply
+means that this switch terminal is not connected to anything.}
 \end{figure}
 
 When the switch is in the lower position (so that pins 1 and 2 are connected),
@@ -161,6 +162,9 @@ that we can use for our circuit.
 Construct this circuit on a breadboard, and connect it to the breadboard as is
 shown in Figure~\ref{fig:schem:switch-jointio}. You'll need to know which
 microswitch wire is which: \todo{How do wires connect to JointIO? Camcons?}
+\todo{Now that we control the colours of the microswitch wires, maybe we should
+change to colours that don't violate our convention of ``red is 3.3V, black is
+0V''}
 
 \begin{tabular*}{\textwidth}[c]{p{3cm}p{2cm}p{6cm}}
 \toprule
