@@ -291,16 +291,41 @@ separated before the system stops working reliably}
 
 \section{Ultrasonic proximity sensors}
 
-\todo[inline]{Depends if we can actually source these}
+You should find a small board with two circular transducers on it on your desk.
+This is an ultrasonic ranging module, which can be used to measure the distance
+between the module and a distant obstacle. This may be useful for collision
+detection as well as locating markers, if used in your robot.
+
+\subsection{How it works}
+
+One of the transducers is an ultrasonic transmitter. The module sends a short
+burst of ultrasonic pulses from this whenever it wants to measure a distance.
+The pulses spread out from the transmitter and reflect off of obstacles. A flat
+obstacle placed directly in front of the module will cause the reflections to
+head back towards the module. The other transducer is an ultrasonic receiver,
+and detects the reflections when they arrive back at the module. By measuring
+the time between the pulses being sent out and their reflections being received,
+and using the equation
+
+\begin{equation*}
+speed = \frac{distance}{time}
+\end{equation*}
+
+you can work out the distance between the module and the obstacle.
+
+\subsection{Wiring up the module}
+
+The module has four pins on one of its sides, which should fit into four
+adjacent holes on your breadboard. Connect the pin labelled ``Gnd'' to one of
+the ground pins on the JointIO board, and the pin labelled ``Vcc'' to one of the
+\SI{3.3}{\volt} outputs. The two other pins, ``Trig'' and ``Echo'', are the
+digital signals that are used to control the module. We will connect ``Trig''
+to output 0 on the JointIO board, and ``Echo'' to input 0. You can use any
+output pin for ``Trig'' and any input pin for ``Echo'' as long as you change the
+code to match.
+
+\todo[inline]{Describe the software side of this.}
 
 \section{Controlling a servo}
 
 \end{document}
-
-
-% Questions:
-%   Are bench PSUs available?
-%   Are participants working in pairs or on their own?
-%   Should hookup wires be provided, or should participants cut and strip their
-%    own wire?
-%   Do we need to buy pliers, wire strippers etc. or will ECS loan us these?

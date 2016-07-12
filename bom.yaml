@@ -123,3 +123,11 @@
   quantity: 40
   item-cost: 0.0269
   total-cost: 1.076
+
+### Parts for ultrasonic task: ###
+
+- summary: HC-SR04 ultrasonic ranging module (compatible with 3.3V supply voltage)
+  url: http://eud.dx.com//product/new-hc-sr04-ultrasonic-sensor-distance-measuring-module-3-3v-5v-compatible-for-arduino-844416860
+  quantity: 32
+  item-cost: 2.06
+  total-cost: 65.92
