@@ -71,16 +71,16 @@
 - summary: 10 kΩ resistor
   notes: 400mW; ±1%
   farnell: 1565271
-  quantity: 40
+  quantity: 35
   item-cost: 0.0269
-  total-cost: 1.076
+  total-cost: 0.9415
 
 - summary: Microswitch
   notes: Solder terminals; SPDT; roller lever
   farnell: SW03187
-  quantity: 40
+  quantity: 35
   item-cost: 0.51
-  total-cost: 20.4
+  total-cost: 17.85
 
 - summary: Stranded hookup wire (black)
   notes: 22 AWG; 25ft reel. For soldering onto microswitch terminals before the lab.
@@ -108,30 +108,30 @@
 - summary: L-53F3C infrared LED
   notes: 1.6V; 20mA; 940nm
   farnell: 2290441
-  quantity: 40
+  quantity: 35
   item-cost: 0.11
-  total-cost: 4.4
+  total-cost: 3.85
 
 - summary: 100 Ω resistor
   notes: 400mW; ±1%
   farnell: 1565270
-  quantity: 40
+  quantity: 35
   item-cost: 0.0269
-  total-cost: 1.076
+  total-cost: 0.9415
 
 - summary: L-53P3C infrared phototransistor
   notes: 940nm
   farnell: 2290444
-  quantity: 40
+  quantity: 35
   item-cost: 0.1069
-  total-cost: 4.276
+  total-cost: 3.7415
 
 - summary: 1 kΩ resistor
   notes: 400mW; ±1%
   farnell: 1565287
-  quantity: 40
+  quantity: 35
   item-cost: 0.0269
-  total-cost: 1.076
+  total-cost: 0.9415
 
 ### Parts for ultrasonic task: ###
 
