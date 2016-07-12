@@ -6,13 +6,22 @@
 ### Tools (non-consumables): ###
 
 - summary: Pliers
+  farnell: TL10342
   quantity: 32
+  item-cost: 2.25
+  total-cost: 72.0
 
 - summary: Side cutters
+  farnell: 2543008
   quantity: 32
+  item-cost: 1.90
+  total-cost: 60.8
 
 - summary: Wire strippers
+  farnell: TL08616
   quantity: 32
+  item-cost: 1.71
+  total-cost: 54.72
 
 - summary: Breadboard
   farnell: 2395961
