@@ -22,6 +22,7 @@
 \todo[inline]{Say: students don't have to finish all tasks, nor do they have to
 start at the first one}
 \todo[inline]{Ensure all figures have suitable captions}
+\todo[inline]{Ensure there's enough questions and things-to-make-the-students-think, rather than just instructions}
 
 \section{Setup}
 
@@ -127,6 +128,8 @@ V = I R
 where $V$ is the voltage, $I$ is the current and $R$ is the resistance. We will
 use this equation to help design and analyse our circuits.
 
+\newpage
+
 \section{Detecting collisions}
 
 A simple way to detect collisions in your robot is to use a circuit involving a
@@ -142,15 +145,17 @@ Let's take a look at the following circuit:
 means that this switch terminal is not connected to anything.}
 \end{figure}
 
-When the switch is in the lower position (so that pins 1 and 2 are connected),
+When the switch is in the lower position (so that pins 1 and 3 are connected),
 the circuit is broken and no current can flow through the resistor. Ohm's law
 tells us that the voltage across the resistor is equal to the current times the
-resistance; therefore the voltage must also be zero.
+resistance; therefore the voltage must also be zero. This is the case when the
+microswitch is not being pressed.
 
-If the switch is moved to the upper position (so that pins 1 and 3 are instead
+If the switch is moved to the upper position (so that pins 1 and 2 are instead
 connected), the top end of the resistor is connected to the \SI{3.3}{\volt}
 supply. Since the other end is connected to ground (\SI{0}{\volt}), this means
-that the voltage across the resistor will be \SI{3.3}{\volt}.
+that the voltage across the resistor will be \SI{3.3}{\volt}. This is the
+situation when the microswitch is pressed.
 
 So currently the voltage across the resistor will be either \SI{0}{\volt} or
 \SI{3.3}{\volt}, depending on the state of the switch. However, to make this
@@ -184,9 +189,17 @@ Red & 3 & Disconnected when switch is pressed, connected to common when not pres
 shown.}
 \end{figure}
 
-\todo[inline]{Think of a corresponding output that can be controlled by this (servo?)}
+It's no use having this circuit built though if we can't see its output. For
+this task we'll use a motor to make a rudimentary collision-avoidance system.
+Imagine the microswitch is to be mounted on the front of the robot, so that it
+is pressed if the robot hits an obstacle. We'll run the motor forwards while the
+switch is not pressed, and backwards while it is pressed. I'm sure you'll be
+able to come up with much more innovative solutions for your robot!
 
-\todo[inline]{Describe the software side of this.}
+\todo[inline]{Describe how to plug a motor into the V3 kit}
+
+\todo[inline]{Describe the software side of this: read digital input (pin 0),
+drive motor forwards if input is low, backwards if input is high.}
 
 \todo[inline]{Say: Why do you think is 10K a good resistor value to use?}
 \todo[inline]{Say: How would you modify the setup to turn on the output when
@@ -194,7 +207,11 @@ the switch is not pressed (instead of when it \emph{is} pressed)? Can you think
 of a solution that only modifies the circuit, and a solution that only modifies
 the software?}
 
+\newpage
+
 \section{Light gates}
+
+\todo[inline]{Say: disassemble your previous circuit}
 
 Another sensor that may be useful is the \emph{infrared light gate}. In its
 simplest form, it consists of two circuits. One powers an infrared LED,
@@ -259,6 +276,7 @@ Let's examine the circuit we will use for this part of the lab:
 \begin{figure}[h]
 \centering
 \includegraphics[width=.5\textwidth]{assets/fig/schem/ir-pt}
+\label{fig:schem:ir-pt}
 \end{figure}
 
 When no light is shone on the phototransistor, there is a very high resistance
@@ -284,12 +302,28 @@ equal to zero, it is still less than the threshold voltage\footnote{On the
 JointIO board, this threshold voltage is \SI{1.65}{\volt}.} for determining
 if an input is ``on'' or ``off''.
 
+Make the following connections between your circuit and the JointIO board:
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.5\textwidth]{assets/fig/schem/ir-jointio}
+\label{fig:schem:ir-jointio}
+\end{figure}
+
+\subsection{Controlling a servo}
+
+\todo[inline]{Describe how to connect a servo to the kit.}
+
 \todo[inline]{Describe the software side of this.}
 
 \todo[inline]{Say: Experiment to see how far the LED and phototransistor can be
 separated before the system stops working reliably}
 
+\newpage
+
 \section{Ultrasonic proximity sensors}
+
+\todo[inline]{Say: disassemble your previous circuit}
 
 You should find a small board with two circular transducers on it on your desk.
 This is an ultrasonic ranging module, which can be used to measure the distance
@@ -325,7 +359,5 @@ output pin for ``Trig'' and any input pin for ``Echo'' as long as you change the
 code to match.
 
 \todo[inline]{Describe the software side of this.}
-
-\section{Controlling a servo}
 
 \end{document}
