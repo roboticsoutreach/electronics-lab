@@ -170,18 +170,15 @@ that we can use for our circuit.
 
 Construct this circuit on a breadboard, and connect it to the breadboard as is
 shown in Figure~\ref{fig:schem:switch-jointio}. You'll need to know which
-microswitch wire is which: \todo{How do wires connect to JointIO? Camcons?}
-\todo{Now that we control the colours of the microswitch wires, maybe we should
-change to colours that don't violate our convention of ``red is 3.3V, black is
-0V''}
+microswitch terminal is which: \todo{How do wires connect to JointIO? Camcons?}
 
 \begin{tabular*}{\textwidth}[c]{p{3cm}p{2cm}p{6cm}}
 \toprule
-Microswitch wire & Pin number on diagram & Description \\
+Microswitch terminal & Pin number on diagram & Description \\
 \midrule
-Black & 1 & Common \\
-Blue & 2 & Connected to common when switch is pressed, disconnected when not pressed \\
-Red & 3 & Disconnected when switch is pressed, connected to common when not pressed \\
+C (``common'') & 1 & Common \\
+NO (``normally open'') & 2 & Connected to common when switch is pressed, disconnected when not pressed \\
+NC (``normally closed'') & 3 & Disconnected when switch is pressed, connected to common when not pressed \\
 \bottomrule
 \end{tabular*}
 

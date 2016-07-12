@@ -76,32 +76,11 @@
   total-cost: 0.9415
 
 - summary: Microswitch
-  notes: Solder terminals; SPDT; roller lever
-  farnell: SW03187
+  notes: Through-hole terminals; SPDT; roller lever
+  farnell: SW03193
   quantity: 35
-  item-cost: 0.51
-  total-cost: 17.85
-
-- summary: Stranded hookup wire (black)
-  notes: 22 AWG; 25ft reel. For soldering onto microswitch terminals before the lab.
-  farnell: 1662078
-  quantity: 1
-  item-cost: 4.301
-  total-cost: 4.301
-
-- summary: Stranded hookup wire (blue)
-  notes: 22 AWG; 25ft reel. For soldering onto microswitch terminals before the lab.
-  farnell: 1662088
-  quantity: 1
-  item-cost: 4.296
-  total-cost: 4.296
-
-- summary: Stranded hookup wire (red)
-  notes: 22 AWG; 25ft reel. For soldering onto microswitch terminals before the lab.
-  farnell: 1662081
-  quantity: 1
-  item-cost: 4.298
-  total-cost: 4.298
+  item-cost: 0.48
+  total-cost: 16.8
 
 ### Parts for light gate task: ###
 
