@@ -76,11 +76,11 @@
   total-cost: 1.076
 
 - summary: Microswitch
-  notes: Solder terminals; SPDT
-  farnell: 2076336
+  notes: Solder terminals; SPDT; roller lever
+  farnell: SW03187
   quantity: 40
-  item-cost: 0.252
-  total-cost: 10.08
+  item-cost: 0.51
+  total-cost: 20.4
 
 - summary: Stranded hookup wire (black)
   notes: 22 AWG; 25ft reel. For soldering onto microswitch terminals before the lab.
