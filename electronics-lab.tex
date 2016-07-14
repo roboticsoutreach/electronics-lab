@@ -5,6 +5,7 @@
 \usepackage{calc}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{minted}
 \usepackage{siunitx}
 \usepackage{todonotes}
 \usepackage{verbatim}
@@ -197,10 +198,38 @@ is pressed if the robot hits an obstacle. We'll run the motor forwards while the
 switch is not pressed, and backwards while it is pressed. I'm sure you'll be
 able to come up with much more innovative solutions for your robot!
 
-\todo[inline]{Describe how to plug a motor into the V3 kit}
+Connect up a motor to a motor board, and connect the motor board's power socket
+to one of the corresponding outlets on the power board. Also ensure that the
+motor board is inserted into the interconnect. Ask a mentor for assistance if
+you're stuck.
 
-\todo[inline]{Describe the software side of this: read digital input (pin 0),
-drive motor forwards if input is low, backwards if input is high.}
+That's the hardware done; now we need to write a program to monitor the sensor
+and control the motor. Start off with the code that will initialise your robot:
+
+\begin{minted}{python}
+from sr import *
+R = Robot()
+\end{minted}
+
+To read the state of an input pin on the JointIO board you can use:
+
+\begin{minted}{python}
+pin = 0 # the input pin number on the JointIO board that the circuit is connected to
+state = R.io[0].input[pin].d
+\end{minted}
+
+The \mintinline{python}{state} variable will now contain either
+\mintinline{python}{True} if the voltage at the input pin was \SI{3.3}{\volt},
+or \mintinline{python}{False} if the voltage was \SI{0}{\volt}.
+
+To control the motor you can use code like the following:
+
+\begin{minted}{python}
+power = 100 # motor power, in range -100 to 100
+R.motors[0].target = power
+\end{minted}
+
+A negative value of \mintinline{python}{power} will run the motor in reverse.
 
 \todo[inline]{Say: Why do you think is 10K a good resistor value to use?}
 \todo[inline]{Say: How would you modify the setup to turn on the output when
