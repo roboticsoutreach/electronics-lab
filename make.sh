@@ -1,6 +1,6 @@
 #!/bin/sh
 
-pdflatexflags="-file-line-error -halt-on-error -interaction nonstopmode"
+pdflatexflags="-file-line-error -halt-on-error -interaction nonstopmode -shell-escape"
 
 texfile="electronics-lab.tex"
 pdffile="electronics-lab.pdf"
