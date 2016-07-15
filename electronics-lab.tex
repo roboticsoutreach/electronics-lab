@@ -140,6 +140,8 @@ use this equation to help design and analyse our circuits.
 A simple way to detect collisions in your robot is to use a circuit involving a
 microswitch. 
 
+\subsection{The circuit}
+
 Let's take a look at the following circuit:
 
 \begin{figure}[h]
@@ -191,6 +193,8 @@ NC (``normally closed'') & 3 & Disconnected when switch is pressed, connected to
 shown.}
 \end{figure}
 
+\subsection{Adding an output}
+
 It's no use having this circuit built though if we can't see its output. For
 this task we'll use a motor to make a rudimentary collision-avoidance system.
 Imagine the microswitch is to be mounted on the front of the robot, so that it
@@ -202,6 +206,8 @@ Connect up a motor to a motor board, and connect the motor board's power socket
 to one of the corresponding outlets on the power board. Also ensure that the
 motor board is inserted into the interconnect. Ask a mentor for assistance if
 you're stuck.
+
+\subsection{Writing the software}
 
 That's the hardware done; now we need to write a program to monitor the sensor
 and control the motor. Start off with the code that will initialise your robot:
@@ -231,14 +237,20 @@ R.motors[0].target = power
 
 A negative value of \mintinline{python}{power} will run the motor in reverse.
 
-\todo[inline]{Say: Why do you think is 10K a good resistor value to use?}
-\todo[inline]{Say: How would you modify the setup to turn on the output when
-the switch is not pressed (instead of when it \emph{is} pressed)? Can you think
-of a solution that only modifies the circuit, and a solution that only modifies
-the software?}
+\subsection{Some things to think about}
 
-\todo[inline]{Say: when you're satisfied with this circuit, try soldering it
-onto stripboard, so you can use it in your robot.}
+How could you modify the circuit to run the motor in reverse when the switch
+isn't pressed, and forwards when it is pressed? Can you do it without making
+any changes to the software?
+
+Does the value of the resistance of the resistor affect the behaviour of the
+circuit? Why do you think the value of \SI{10}{\kilo\ohm} that we used is a
+good choice?
+
+\todo[inline]{More?}
+
+When you're satisfied with this circuit, try soldering it onto stripboard so
+that you can use it inside your robot.
 
 \newpage
 
@@ -402,9 +414,6 @@ Figure~\ref{fig:schem:ultra-jointio}.
 \end{figure}
 
 \todo[inline]{Describe the software side of this.}
-
-\todo[inline]{Say: when you're satisfied with this circuit, try soldering it
-onto stripboard, so you can use it in your robot.}
 
 \todo[inline]{Could really do with another task, ideally something more in depth
 than just switch/LED circuits. I was thinking an op-amp comparator circuit
